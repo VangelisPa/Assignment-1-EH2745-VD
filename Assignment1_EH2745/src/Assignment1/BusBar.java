@@ -1,5 +1,5 @@
 package Assignment1;
 
-public class Busbar {
+public class BusBar {
 
 }

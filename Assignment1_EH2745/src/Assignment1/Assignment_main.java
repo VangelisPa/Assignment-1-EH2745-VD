@@ -37,7 +37,7 @@ public class Assignment_main{
 	public static  ArrayList <Terminal> TerminalList = new ArrayList<Terminal>();
 	public static  ArrayList <ConnectivityNode> ConnectNodeList = new ArrayList<ConnectivityNode>();
 	public static  ArrayList <ACLineSegment> ACLineList = new ArrayList<ACLineSegment>();
-	public static  ArrayList <Busbar> BusBarList = new ArrayList<Busbar>();
+	public static  ArrayList <BusBar> BusBarList = new ArrayList<BusBar>();
 	public static  ArrayList <Shunt> ShuntList = new ArrayList<Shunt>();
 	
 	// The general method for parsing the CIM data and return them as a array list for each CIM object
@@ -134,12 +134,12 @@ public class Assignment_main{
 				PowerTrList.add(PowTrans);
 				}
 			//Energy Consumer List
-			for (int i = 0; i<energyConList.getLength(); i++) {
-				LoadClass load = new LoadClass();
-				load.extractNode(energyConList.item(i));
-				load.extractNodeSSH(energyConListSSH.item(i));
-				LoadList.add(load);
-				}
+			//for (int i = 0; i<energyConList.getLength(); i++) {
+			//	LoadClass load = new LoadClass();
+			//	load.extractNode(energyConList.item(i));
+			//	load.extractNodeSSH(energyConListSSH.item(i));
+			//	LoadList.add(load);
+			//	}
 		    //Power Transformer End (Winding) List
 			for (int i = 0; i<powTrEndList.getLength(); i++) {
 				PowerTransformerEnd transEnd = new PowerTransformerEnd();
@@ -164,31 +164,31 @@ public class Assignment_main{
 			//// For YBUS matrix			     
 				  //Terminal List
 					for (int i = 0; i<terminalList.getLength(); i++) {
-						TerminalClass terminal = new TerminalClass();
+						Terminal terminal = new Terminal();
 						terminal.extractNode(terminalList.item(i));
 						TerminalList.add(terminal);
 						}
 				  //Connectivity Node List
 					for (int i = 0; i<CNodeList.getLength(); i++) {
-						ConnectivityNodeClass ConNode = new ConnectivityNodeClass();
+						ConnectivityNode ConNode = new ConnectivityNode();
 						ConNode.extractNode(CNodeList.item(i));
 						ConnectNodeList.add(ConNode);
 						}
 				  //AC Line List
 					for (int i = 0; i<LineList.getLength(); i++) {
-						ACLineClass line = new ACLineClass();
+						ACLineSegment line = new ACLineSegment();
 						line.extractNode(LineList.item(i));
 						ACLineList.add(line);
 						}
 				  //BusBar List
 					for (int i = 0; i<busList.getLength(); i++) {
-						BusBarClass bus = new BusBarClass();
+						BusBar bus = new BusBar();
 						bus.extractNode(busList.item(i));
 						BusBarList.add(bus);
 						}
 				  //Linear Shunt Compensator List
 					for (int i = 0; i<shuntList.getLength(); i++) {
-						ShuntClass shunt = new ShuntClass();
+						Shunt shunt = new Shunt();
 						shunt.extractNode(shuntList.item(i));
 						ShuntList.add(shunt);
 						}
@@ -221,9 +221,9 @@ public class Assignment_main{
 	public List <PowerTransformer> getPowTrList(){
 		return PowerTrList;
 	}
-	public List <LoadClass> getLoadList(){
-		return LoadList;
-	}
+	//public List <LoadClass> getLoadList(){
+	//	return LoadList;
+	//}
 	public List <PowerTransformerEnd> getTrWindList(){
 		return TransWindList;
 	}
